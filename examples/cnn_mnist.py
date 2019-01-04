@@ -12,9 +12,9 @@ def run():
     mnist = sklearn.datasets.fetch_mldata('MNIST original', data_home='./data')
     split = 60000
     X_train = np.reshape(mnist.data[:split], (-1, 1, 28, 28))/255.0
-    y_train = mnist.target[:split]
+    y_train = mnist.target[:split].astype("int")
     X_test = np.reshape(mnist.data[split:], (-1, 1, 28, 28))/255.0
-    y_test = mnist.target[split:]
+    y_test = mnist.target[split:].astype("int")
     n_classes = np.unique(y_train).size
 
     # Downsample training data
